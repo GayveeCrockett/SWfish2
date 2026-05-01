@@ -1,58 +1,83 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException, Query
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
-from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field
-from typing import List
-import uuid
-from datetime import datetime
+from typing import List, Optional
 
+from fish_data import FISHES, all_filter_options
 
 ROOT_DIR = Path(__file__).parent
-load_dotenv(ROOT_DIR / '.env')
+load_dotenv(ROOT_DIR / ".env")
 
-# MongoDB connection
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
-
-# Create the main app without a prefix
-app = FastAPI()
-
-# Create a router with the /api prefix
+app = FastAPI(title="Reef Search API")
 api_router = APIRouter(prefix="/api")
 
 
-# Define Models
-class StatusCheck(BaseModel):
-    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    client_name: str
-    timestamp: datetime = Field(default_factory=datetime.utcnow)
-
-class StatusCheckCreate(BaseModel):
-    client_name: str
-
-# Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Reef Search API", "fish_count": len(FISHES)}
 
-@api_router.post("/status", response_model=StatusCheck)
-async def create_status_check(input: StatusCheckCreate):
-    status_dict = input.dict()
-    status_obj = StatusCheck(**status_dict)
-    _ = await db.status_checks.insert_one(status_obj.dict())
-    return status_obj
 
-@api_router.get("/status", response_model=List[StatusCheck])
-async def get_status_checks():
-    status_checks = await db.status_checks.find().to_list(1000)
-    return [StatusCheck(**status_check) for status_check in status_checks]
+@api_router.get("/filters")
+async def get_filters():
+    """Return all available filter options derived from the dataset."""
+    return all_filter_options()
 
-# Include the router in the main app
+
+def _match_any(values: List[str], wanted: List[str]) -> bool:
+    if not wanted:
+        return True
+    lowered = [v.lower() for v in values]
+    return any(w.lower() in lowered for w in wanted)
+
+
+def _match_single(value: str, wanted: List[str]) -> bool:
+    if not wanted:
+        return True
+    return value.lower() in [w.lower() for w in wanted]
+
+
+@api_router.get("/fishes")
+async def list_fishes(
+    q: Optional[str] = None,
+    colors: Optional[List[str]] = Query(default=None),
+    diets: Optional[List[str]] = Query(default=None),
+    habitats: Optional[List[str]] = Query(default=None),
+    conservation: Optional[List[str]] = Query(default=None),
+    can_eat: Optional[List[str]] = Query(default=None),
+    poison: Optional[List[str]] = Query(default=None),
+):
+    results = []
+    query = (q or "").strip().lower()
+    for fish in FISHES:
+        if query and query not in fish["name"].lower():
+            continue
+        if not _match_any(fish["colors"], colors or []):
+            continue
+        if diets and not _match_single(fish["diet"], diets):
+            continue
+        if not _match_any(fish["habitats"], habitats or []):
+            continue
+        if conservation and not _match_single(fish["conservation_status"], conservation):
+            continue
+        if can_eat and not _match_single(fish["can_eat"], can_eat):
+            continue
+        if poison and not _match_single(fish["poison_toxin"], poison):
+            continue
+        results.append(fish)
+    return {"count": len(results), "fishes": results}
+
+
+@api_router.get("/fishes/{fish_id}")
+async def get_fish(fish_id: str):
+    for fish in FISHES:
+        if fish["id"] == fish_id:
+            return fish
+    raise HTTPException(status_code=404, detail="Fish not found")
+
+
 app.include_router(api_router)
 
 app.add_middleware(
@@ -63,13 +88,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
 )
 logger = logging.getLogger(__name__)
-
-@app.on_event("shutdown")
-async def shutdown_db_client():
-    client.close()
