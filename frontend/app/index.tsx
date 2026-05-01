@@ -69,7 +69,7 @@ export default function Home() {
         activeOpacity={0.85}
       >
         <View style={styles.cardImageWrap}>
-          <Image source={{ uri: PLACEHOLDER_IMAGE }} style={styles.cardImage} />
+          <Image source={{ uri: item.image_url || PLACEHOLDER_IMAGE }} style={styles.cardImage} />
           <View style={styles.imageOverlay} />
           {item.poison_toxin === "yes" && (
             <View style={styles.poisonBadge} testID={`poison-badge-${item.id}`}>

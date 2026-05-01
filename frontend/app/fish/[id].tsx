@@ -53,7 +53,7 @@ export default function FishDetail() {
   return (
     <View style={styles.container}>
       <View style={styles.heroWrap}>
-        <Image source={{ uri: PLACEHOLDER_IMAGE }} style={styles.hero} />
+        <Image source={{ uri: fish.image_url || PLACEHOLDER_IMAGE }} style={styles.hero} />
         <View style={styles.heroOverlay} />
       </View>
 

@@ -13,6 +13,7 @@ export type Fish = {
   can_eat: string;
   colors: string[];
   description: string;
+  image_url?: string;
 };
 
 export type FilterOptions = {

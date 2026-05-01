@@ -13,7 +13,7 @@ VALID_DIETS = {
 }
 
 RAW_FISH: List[Dict[str, Any]] = [
-    {"name": "clown fish", "diet": "zoopl", "longevity": "6-10 years", "conservation_status": "LC", "poison_toxin": "no", "natural_hab": "Indo-Pacific", "nifty_facts": "sequential hermaphrodite", "can_eat": "Technically", "description": "orange, black, white"},
+    {"name": "clown fish", "diet": "zoopl", "longevity": "6-10 years", "conservation_status": "LC", "poison_toxin": "no", "natural_hab": "Indo-Pacific", "nifty_facts": "sequential hermaphrodite", "can_eat": "Technically", "description": "orange, black, white", "image_url": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/9vuy2m5y_clown.jpg"},
     {"name": "koi", "diet": "omnivore", "longevity": "25-35 years", "conservation_status": "LC", "poison_toxin": "no", "natural_hab": "Fresh Water; east asia", "nifty_facts": "", "can_eat": "Technically", "description": "orange, black, yellow"},
     {"name": "flame angelfish", "diet": "omnivo", "longevity": "5-10 years", "conservation_status": "LC", "poison_toxin": "no", "natural_hab": "Pacific; coral", "nifty_facts": "", "can_eat": "Technically", "description": "orange, black, blue"},
     {"name": "freckletail lyretail", "diet": "omnivo", "longevity": "8-15 years", "conservation_status": "LC", "poison_toxin": "no", "natural_hab": "Indo-Pacific", "nifty_facts": "", "can_eat": "Technically", "description": "blue, white, black"},
@@ -171,6 +171,7 @@ def build_fishes() -> List[Dict[str, Any]]:
             "can_eat": f.get("can_eat", "") or "Unknown",
             "colors": _parse_colors(f.get("description", "")),
             "description": f.get("description", ""),
+            "image_url": f.get("image_url", ""),
         })
     return result
 
