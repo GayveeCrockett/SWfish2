@@ -1,0 +1,136 @@
+{
+  "theme": "light",
+  "archetype": "6 - Vibrant Play (Tropical Ocean Customization)",
+  "rationale": "The app requires a 'Sea World' aesthetic that feels vibrant, playful, and aquatic. We avoid standard 'clinical' or 'tech' dark modes, opting instead for a bright, immersive, and kid-friendly environment using deep navy text, ocean blues, and warm coral/yellow accents.",
+  "colors": {
+    "background": {
+      "default": "#F6FBFC",
+      "surface": "#FFFFFF",
+      "surface_highlight": "#E8F4F8",
+      "overlay": "rgba(3, 4, 94, 0.4)"
+    },
+    "text": {
+      "primary": "#03045E",
+      "secondary": "#5B8E9D",
+      "inverse": "#FFFFFF",
+      "placeholder": "#8ECAE6"
+    },
+    "brand": {
+      "primary": "#0077B6",
+      "primary_light": "#00B4D8",
+      "secondary": "#48CAE4",
+      "accent_yellow": "#FFD166",
+      "accent_coral": "#EF476F",
+      "accent_green": "#06D6A0"
+    },
+    "filter_chips": {
+      "active_bg": "#0077B6",
+      "active_text": "#FFFFFF",
+      "inactive_bg": "#FFFFFF",
+      "inactive_text": "#03045E",
+      "border": "#00B4D8"
+    }
+  },
+  "typography": {
+    "font_families": {
+      "heading": "Fredoka",
+      "body": "Nunito"
+    },
+    "scales": {
+      "h1": { "fontSize": 32, "lineHeight": 40, "fontFamily": "Fredoka", "fontWeight": "600", "letterSpacing": 0.5 },
+      "h2": { "fontSize": 24, "lineHeight": 32, "fontFamily": "Fredoka", "fontWeight": "600", "letterSpacing": 0.25 },
+      "h3": { "fontSize": 20, "lineHeight": 28, "fontFamily": "Fredoka", "fontWeight": "500", "letterSpacing": 0 },
+      "body_large": { "fontSize": 18, "lineHeight": 26, "fontFamily": "Nunito", "fontWeight": "400" },
+      "body_main": { "fontSize": 16, "lineHeight": 24, "fontFamily": "Nunito", "fontWeight": "400" },
+      "label": { "fontSize": 14, "lineHeight": 20, "fontFamily": "Nunito", "fontWeight": "700", "letterSpacing": 0.5, "textTransform": "uppercase" },
+      "caption": { "fontSize": 12, "lineHeight": 16, "fontFamily": "Nunito", "fontWeight": "500" }
+    }
+  },
+  "spacing": {
+    "xs": 4,
+    "sm": 8,
+    "md": 16,
+    "lg": 24,
+    "xl": 32,
+    "2xl": 48
+  },
+  "borderRadius": {
+    "sm": 8,
+    "md": 16,
+    "lg": 24,
+    "pill": 9999
+  },
+  "shadows": {
+    "card": {
+      "shadowColor": "#0077B6",
+      "shadowOffset": { "width": 0, "height": 8 },
+      "shadowOpacity": 0.08,
+      "shadowRadius": 16,
+      "elevation": 4
+    },
+    "button": {
+      "shadowColor": "#00B4D8",
+      "shadowOffset": { "width": 0, "height": 4 },
+      "shadowOpacity": 0.15,
+      "shadowRadius": 8,
+      "elevation": 3
+    }
+  },
+  "components": {
+    "search_bar": {
+      "container": "backgroundColor: '#FFFFFF', borderRadius: 9999, paddingHorizontal: 20, paddingVertical: 14, flexDirection: 'row', alignItems: 'center'",
+      "border": "borderWidth: 2, borderColor: '#E8F4F8'",
+      "textInput": "color: '#03045E', fontFamily: 'Nunito', fontSize: 16, flex: 1, marginLeft: 12",
+      "icon_color": "#00B4D8"
+    },
+    "filter_chip": {
+      "container": "paddingHorizontal: 16, paddingVertical: 8, borderRadius: 9999, borderWidth: 1, marginRight: 8, flexDirection: 'row', alignItems: 'center'",
+      "active": "backgroundColor: '#0077B6', borderColor: '#0077B6'",
+      "inactive": "backgroundColor: '#FFFFFF', borderColor: '#48CAE4'"
+    },
+    "fish_card": {
+      "container": "backgroundColor: '#FFFFFF', borderRadius: 24, marginBottom: 16, overflow: 'hidden'",
+      "image_container": "height: 180, width: '100%', backgroundColor: '#E8F4F8'",
+      "content": "padding: 16",
+      "title": "fontFamily: 'Fredoka', fontSize: 20, color: '#03045E', marginBottom: 4",
+      "tags_row": "flexDirection: 'row', flexWrap: 'wrap', gap: 6, marginTop: 12"
+    },
+    "detail_screen": {
+      "hero_image": "height: 350, width: '100%', position: 'absolute', top: 0",
+      "content_sheet": "backgroundColor: '#F6FBFC', borderTopLeftRadius: 32, borderTopRightRadius: 32, marginTop: 300, minHeight: '100%', padding: 24",
+      "bento_grid": "flexDirection: 'row', flexWrap: 'wrap', gap: 12, marginTop: 24",
+      "bento_item": "backgroundColor: '#FFFFFF', borderRadius: 20, padding: 16, width: '48%'"
+    }
+  },
+  "image_urls": [
+    {
+      "url": "https://images.unsplash.com/photo-1634813853938-e792dc26b05b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwxfHxjbG93bmZpc2glMjBhbmVtb25lfGVufDB8fHx8MTc3NzY2NTk1OHww&ixlib=rb-4.1.0&q=85",
+      "description": "a black and white fish in a purple sea anemone",
+      "category": "placeholder_primary"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1675935190332-c3b7069bbdba?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzh8MHwxfHNlYXJjaHwyfHxjbG93bmZpc2glMjBhbmVtb25lfGVufDB8fHx8MTc3NzY2NTk1OHww&ixlib=rb-4.1.0&q=85",
+      "description": "an orange and white clown fish in an aquarium",
+      "category": "placeholder_secondary"
+    },
+    {
+      "url": "https://images.pexels.com/photos/30570561/pexels-photo-30570561.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Clownfish nestled in vibrant anemone",
+      "category": "placeholder_tertiary"
+    }
+  ],
+  "accessibility": {
+    "contrast": "Ensure primary text (#03045E) on backgrounds (#FFFFFF, #F6FBFC) passes AA minimums. Use accent_coral (#EF476F) for poison warnings.",
+    "testing_attributes": "Add testID prop to all touchables (e.g., testID='search-input', testID='filter-chip-omnivore', testID='fish-card-clownfish').",
+    "touch_targets": "Ensure all filter chips and buttons have a minimum height of 44px."
+  },
+  "instructions_to_main_agent": [
+    "This is a React Native Expo application. Use standard StyleSheet.create, NOT Tailwind.",
+    "Implement layout using a mobile-first Bento grid concept on the detail screen to show attributes like diet, habitat, and conservation status.",
+    "Do not use generic 'Inter' or 'Roboto'. Ensure 'Fredoka' and 'Nunito' are loaded via expo-font.",
+    "For the fish list placeholder image, map random indexes of the provided image_urls array, or use the primary one globally until user adds their own.",
+    "Apply 'Sea World' vibrance: The background should be Seafoam White, with crisp white cards and colorful yellow/coral/blue tags for filters.",
+    "The search bar should have a soft, inviting pill shape. Group filter categories (Color, Diet, Habitat, etc.) clearly.",
+    "Use testID attributes strictly in kebab-case for all interactive components."
+  ]
+}
