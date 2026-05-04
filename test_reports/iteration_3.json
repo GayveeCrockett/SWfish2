@@ -1,0 +1,34 @@
+{
+  "summary": "Backend (14/14 pytest PASS) and Frontend (all SWSA-fruit + theme toggle flows PASS) verified for iteration 3. /api/filters now returns swsa_habitats=['banana','kiwi','mango','strawberry']. Fruit-tank counts match exactly: banana=7, mango=13, kiwi=48, strawberry=24. Clown fish (id=1) returns swsa_fruit='banana', swsa_habitats=['banana'] and the user-uploaded customer-assets clown.jpg is intact. UI: theme-toggle-btn flips card surface (light=#FFFFFF -> dark=#0D2A44) and persists to detail page (title color rgb(230,244,250)); FilterSheet shows 4 SWSA Habitat chips with fruit emoji (testIDs filter-swsa_habitats-{banana|mango|kiwi|strawberry}); selecting banana + Show Results yields exactly 7 cards; cards show fruit emoji badge top-left; detail page shows new 'SWSA Habitat' section with swsa-fruit-pill (🍌 Banana). Regression: search by name + color/diet filters still work; clown fish hero is user-uploaded image.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "fish/[id].tsx backBtn", "issue": "In DARK mode the back button is a hard-coded white circle (rgba(255,255,255,0.92)) but the chevron-back icon uses theme.textPrimary (#E6F4FA, near-white) -> chevron is invisible against white circle. Fix: use theme.surface for backBtn bg in dark, or set icon color to theme.primary / textInverse.", "testID": "back-btn", "priority": "MEDIUM"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "global", "issues": ["Console deprecation warning: 'shadow*' style props deprecated - use boxShadow (RN Web only, non-blocking)"]}
+    ],
+    "react_native_issues": []
+  },
+  "test_report_links": ["/app/backend/tests/test_reef_api.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "Fix back button visibility in dark mode on fish detail screen (chevron invisible on white circle - update backBtn background or icon color based on theme.mode)",
+    "Optional: replace deprecated shadow* style props with boxShadow"
+  ],
+  "critical_code_review_comments": [
+    "fish_data._fruit_for_index correctly partitions the 92-fish dataset into banana(0-6=7), mango(7-19=13), kiwi(20-67=48), strawberry(68+=24) matching PDF spec",
+    "build_fishes() sets swsa_fruit AND swsa_habitats=[fruit] so both filter API and detail UI work",
+    "ThemeProvider in src/theme.tsx exposes useTheme() with toggle(); _layout wraps Stack with ThemedStack so contentStyle.backgroundColor follows theme",
+    "Home + Detail use makeStyles(theme) memoized via useMemo so re-render on toggle is correct",
+    "Header back button on detail screen uses hard-coded rgba(255,255,255,0.92) bg - not theme-aware (UI bug listed above)",
+    "Body backgroundColor at the document level is transparent (rgba(0,0,0,0)) - the bg color comes from SafeAreaView/contentStyle. Verified by reading card.backgroundColor instead during test."
+  ],
+  "updated_files": ["/app/backend/tests/test_reef_api.py"],
+  "success_rate": {"backend": "100% (14/14)", "frontend": "100% (1 minor visual issue on detail back btn in dark mode)"},
+  "seed_data_creation": "None - static fish_data.py (92 fishes)",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Use BASE_URL = process.env.EXPO_PUBLIC_BACKEND_URL. SWSA chips testIDs are now filter-swsa_habitats-{banana|mango|kiwi|strawberry} (lowercase fruit names, not regions). Expected counts: banana=7, mango=13, kiwi=48, strawberry=24. Theme toggle: testID=theme-toggle-btn in home header; LIGHT card bg=rgb(255,255,255), DARK card bg=rgb(13,42,68). Detail page swsa-fruit-pill expects FRUIT_EMOJI[fruit] + capitalize(fruit). Mobile viewport 390x844.",
+  "rca_of_issue": "Detail back-btn dark-mode invisible chevron RCA: in fish/[id].tsx the backBtn style sets backgroundColor: 'rgba(255,255,255,0.92)' (hard-coded white), and the Ionicons name='chevron-back' uses color={theme.textPrimary}. In DARK_THEME, textPrimary=#E6F4FA (near-white) -> low contrast against white circle. Fix: either change backBtn bg to t.surface (or t.surface + opacity) OR set icon color to t.textInverse or t.primary."
+}

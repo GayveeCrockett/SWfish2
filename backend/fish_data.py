@@ -166,11 +166,23 @@ def _normalize_habitat(raw: str) -> List[str]:
     return out
 
 
+def _fruit_for_index(idx: int) -> str:
+    """Map fish index to SWSA habitat tank (fruit) per the Reef Search fish log."""
+    if idx <= 6:
+        return "banana"
+    if idx <= 19:
+        return "mango"
+    if idx <= 67:
+        return "kiwi"
+    return "strawberry"
+
+
 def build_fishes() -> List[Dict[str, Any]]:
     result = []
     for idx, f in enumerate(RAW_FISH):
         # Priority: explicit image_url on the fish (e.g., user upload) > Wikipedia lookup
         image_url = f.get("image_url") or _WIKI_IMAGES.get(f["name"], "")
+        fruit = _fruit_for_index(idx)
         result.append({
             "id": str(idx + 1),
             "name": f["name"],
@@ -179,9 +191,10 @@ def build_fishes() -> List[Dict[str, Any]]:
             "conservation_status": f.get("conservation_status", "") or "Unknown",
             "poison_toxin": f.get("poison_toxin", "") or "unknown",
             "habitats": _normalize_habitat(f.get("natural_hab", "")),
-            "swsa_habitats": _normalize_habitat(f.get("swsa_hab", "") or f.get("natural_hab", "")),
+            "swsa_habitats": [fruit],
+            "swsa_fruit": fruit,
             "natural_hab_raw": f.get("natural_hab", ""),
-            "swsa_hab_raw": f.get("swsa_hab", "") or f.get("natural_hab", ""),
+            "swsa_hab_raw": fruit,
             "nifty_facts": f.get("nifty_facts", ""),
             "can_eat": f.get("can_eat", "") or "Unknown",
             "colors": _parse_colors(f.get("description", "")),

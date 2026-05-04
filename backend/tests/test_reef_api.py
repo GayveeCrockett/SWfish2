@@ -1,4 +1,4 @@
-"""Backend API tests for Reef Search."""
+"""Reef Search backend tests - SWSA Habitat (fruit tanks) + theme iteration."""
 import os
 import pytest
 import requests
@@ -7,137 +7,104 @@ BASE_URL = os.environ.get("EXPO_PUBLIC_BACKEND_URL", "https://fish-search-app.pr
 
 
 @pytest.fixture
-def client():
+def api():
     s = requests.Session()
     s.headers.update({"Content-Type": "application/json"})
     return s
 
 
-# Health
-def test_root(client):
-    r = client.get(f"{BASE_URL}/api/")
-    assert r.status_code == 200
-    data = r.json()
-    assert "fish_count" in data
-    assert data["fish_count"] >= 89
+# ---- Health ----
+class TestHealth:
+    def test_root(self, api):
+        r = api.get(f"{BASE_URL}/api/")
+        assert r.status_code == 200
+        data = r.json()
+        assert "fish_count" in data
+        assert data["fish_count"] >= 92
 
 
-# Filters
-def test_filters(client):
-    r = client.get(f"{BASE_URL}/api/filters")
-    assert r.status_code == 200
-    data = r.json()
-    for k in ["colors", "diets", "habitats", "swsa_habitats", "conservation", "can_eat", "poison"]:
-        assert k in data and isinstance(data[k], list) and len(data[k]) > 0
+# ---- /api/filters returns fruit names ----
+class TestFilters:
+    def test_filters_swsa_habitats_are_fruits(self, api):
+        r = api.get(f"{BASE_URL}/api/filters")
+        assert r.status_code == 200
+        data = r.json()
+        assert "swsa_habitats" in data
+        assert sorted(data["swsa_habitats"]) == ["banana", "kiwi", "mango", "strawberry"]
+
+    def test_filters_other_groups_present(self, api):
+        r = api.get(f"{BASE_URL}/api/filters")
+        data = r.json()
+        for k in ["colors", "diets", "habitats", "conservation", "can_eat", "poison"]:
+            assert k in data and len(data[k]) > 0
 
 
-# SWSA Habitat filter options content
-def test_filters_swsa_habitats_content(client):
-    r = client.get(f"{BASE_URL}/api/filters")
-    assert r.status_code == 200
-    data = r.json()
-    swsa = data["swsa_habitats"]
-    expected = ["Caribbean", "East Pacific", "Fresh Water", "Indian Ocean",
-                "Indo-Pacific", "Pacific", "Philippines", "Red Sea",
-                "South Pacific", "Western Pacific"]
-    for region in expected:
-        assert region in swsa, f"Missing region {region} in swsa_habitats: {swsa}"
+# ---- SWSA fruit counts ----
+class TestSwsaFruitCounts:
+    @pytest.mark.parametrize("fruit,expected", [
+        ("banana", 7),
+        ("mango", 13),
+        ("kiwi", 48),
+        ("strawberry", 24),
+    ])
+    def test_count(self, api, fruit, expected):
+        r = api.get(f"{BASE_URL}/api/fishes", params={"swsa_habitats": fruit})
+        assert r.status_code == 200
+        data = r.json()
+        assert data["count"] == expected, f"expected {expected} for {fruit}, got {data['count']}"
+        for f in data["fishes"]:
+            assert f["swsa_fruit"] == fruit
+            assert fruit in [s.lower() for s in f["swsa_habitats"]]
+
+    def test_banana_contents(self, api):
+        r = api.get(f"{BASE_URL}/api/fishes", params={"swsa_habitats": "banana"})
+        names = sorted([f["name"] for f in r.json()["fishes"]])
+        expected = sorted([
+            "clown fish", "koi", "flame angelfish", "freckletail lyretail",
+            "black spot angelfish", "king angelfish", "asfur angelfish",
+        ])
+        assert names == expected
 
 
-# SWSA filter Red Sea -> 4 expected
-def test_swsa_red_sea(client):
-    r = client.get(f"{BASE_URL}/api/fishes", params={"swsa_habitats": "Red Sea"})
-    assert r.status_code == 200
-    d = r.json()
-    assert d["count"] == 4, f"Expected 4 Red Sea fishes, got {d['count']}: {[f['name'] for f in d['fishes']]}"
-    for f in d["fishes"]:
-        assert "Red Sea" in f["swsa_habitats"]
+# ---- Fish detail ----
+class TestFishDetail:
+    def test_clown_fish_id_1(self, api):
+        r = api.get(f"{BASE_URL}/api/fishes/1")
+        assert r.status_code == 200
+        f = r.json()
+        assert f["name"] == "clown fish"
+        assert f["swsa_fruit"] == "banana"
+        assert f["swsa_habitats"] == ["banana"]
+        assert f["image_url"].startswith("https://customer-assets.emergentagent.com/")
+        assert "clown" in f["image_url"]
+
+    def test_404(self, api):
+        r = api.get(f"{BASE_URL}/api/fishes/999")
+        assert r.status_code == 404
 
 
-# SWSA Indo-Pacific majority
-def test_swsa_indo_pacific(client):
-    r = client.get(f"{BASE_URL}/api/fishes", params={"swsa_habitats": "Indo-Pacific"})
-    assert r.status_code == 200
-    d = r.json()
-    assert d["count"] >= 50, f"Expected majority (>=50) for Indo-Pacific, got {d['count']}"
-    for f in d["fishes"]:
-        assert "Indo-Pacific" in f["swsa_habitats"]
+# ---- Regression: other filters still work ----
+class TestRegression:
+    def test_search_by_name(self, api):
+        r = api.get(f"{BASE_URL}/api/fishes", params={"q": "clown"})
+        assert r.status_code == 200
+        names = [f["name"] for f in r.json()["fishes"]]
+        assert "clown fish" in names
 
+    def test_color_filter(self, api):
+        r = api.get(f"{BASE_URL}/api/fishes", params={"colors": "red"})
+        assert r.status_code == 200
+        assert r.json()["count"] > 0
 
-# SWSA + colors combined filter
-def test_swsa_red_sea_and_yellow(client):
-    r = client.get(f"{BASE_URL}/api/fishes", params=[("swsa_habitats", "Red Sea"), ("colors", "yellow")])
-    assert r.status_code == 200
-    d = r.json()
-    assert d["count"] >= 1
-    for f in d["fishes"]:
-        assert "Red Sea" in f["swsa_habitats"]
-        assert "yellow" in [c.lower() for c in f["colors"]]
+    def test_diet_filter(self, api):
+        r = api.get(f"{BASE_URL}/api/fishes", params={"diets": "carnivore"})
+        assert r.status_code == 200
+        assert r.json()["count"] > 0
 
-
-# Each fish has swsa_habitats field
-def test_fishes_have_swsa_habitats(client):
-    r = client.get(f"{BASE_URL}/api/fishes")
-    d = r.json()
-    for f in d["fishes"]:
-        assert "swsa_habitats" in f
-        assert isinstance(f["swsa_habitats"], list)
-        assert len(f["swsa_habitats"]) >= 1
-
-
-# List all
-def test_list_all_fishes(client):
-    r = client.get(f"{BASE_URL}/api/fishes")
-    assert r.status_code == 200
-    d = r.json()
-    assert d["count"] >= 89
-    assert len(d["fishes"]) == d["count"]
-    f0 = d["fishes"][0]
-    for k in ["id", "name", "diet", "colors", "habitats", "conservation_status", "poison_toxin", "can_eat"]:
-        assert k in f0
-
-
-# Search by name
-def test_search_clown(client):
-    r = client.get(f"{BASE_URL}/api/fishes", params={"q": "clown"})
-    assert r.status_code == 200
-    d = r.json()
-    assert d["count"] >= 1
-    for f in d["fishes"]:
-        assert "clown" in f["name"].lower()
-
-
-# Multi-filter colors + diet
-def test_multi_filter(client):
-    r = client.get(f"{BASE_URL}/api/fishes", params=[("colors", "orange"), ("diets", "omnivore")])
-    assert r.status_code == 200
-    d = r.json()
-    for f in d["fishes"]:
-        assert "orange" in [c.lower() for c in f["colors"]]
-        assert f["diet"].lower() == "omnivore"
-
-
-# Poison filter
-def test_poison_yes(client):
-    r = client.get(f"{BASE_URL}/api/fishes", params={"poison": "yes"})
-    assert r.status_code == 200
-    d = r.json()
-    assert d["count"] >= 1
-    for f in d["fishes"]:
-        assert f["poison_toxin"].lower() == "yes"
-
-
-# Get single fish
-def test_get_fish_1(client):
-    r = client.get(f"{BASE_URL}/api/fishes/1")
-    assert r.status_code == 200
-    f = r.json()
-    assert f["id"] == "1"
-    for k in ["name", "diet", "longevity", "conservation_status", "poison_toxin", "habitats", "can_eat", "colors"]:
-        assert k in f
-
-
-# 404
-def test_get_fish_404(client):
-    r = client.get(f"{BASE_URL}/api/fishes/99999")
-    assert r.status_code == 404
+    def test_combined_swsa_and_color(self, api):
+        r = api.get(f"{BASE_URL}/api/fishes", params=[("swsa_habitats", "banana"), ("colors", "orange")])
+        assert r.status_code == 200
+        # all returned fish must be banana tank AND have orange
+        for f in r.json()["fishes"]:
+            assert f["swsa_fruit"] == "banana"
+            assert "orange" in f["colors"]

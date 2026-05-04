@@ -3,6 +3,20 @@ import { StatusBar } from "expo-status-bar";
 import { useFonts, Fredoka_500Medium, Fredoka_600SemiBold } from "@expo-google-fonts/fredoka";
 import { Nunito_400Regular, Nunito_500Medium, Nunito_700Bold } from "@expo-google-fonts/nunito";
 import { View, ActivityIndicator, StyleSheet } from "react-native";
+import { ThemeProvider, useTheme } from "../src/theme";
+
+function ThemedStack() {
+  const { theme } = useTheme();
+  return (
+    <>
+      <StatusBar style={theme.statusBar} />
+      <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: theme.bg } }}>
+        <Stack.Screen name="index" />
+        <Stack.Screen name="fish/[id]" options={{ presentation: "card", animation: "slide_from_right" }} />
+      </Stack>
+    </>
+  );
+}
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -22,13 +36,9 @@ export default function RootLayout() {
   }
 
   return (
-    <>
-      <StatusBar style="dark" />
-      <Stack screenOptions={{ headerShown: false, contentStyle: { backgroundColor: "#F6FBFC" } }}>
-        <Stack.Screen name="index" />
-        <Stack.Screen name="fish/[id]" options={{ presentation: "card", animation: "slide_from_right" }} />
-      </Stack>
-    </>
+    <ThemeProvider>
+      <ThemedStack />
+    </ThemeProvider>
   );
 }
 

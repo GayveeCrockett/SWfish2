@@ -9,6 +9,7 @@ export type Fish = {
   poison_toxin: string;
   habitats: string[];
   swsa_habitats: string[];
+  swsa_fruit: string;
   natural_hab_raw: string;
   swsa_hab_raw: string;
   nifty_facts: string;
