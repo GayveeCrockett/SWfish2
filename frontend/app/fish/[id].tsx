@@ -227,7 +227,7 @@ const makeStyles = (t: Theme) =>
       width: 44,
       height: 44,
       borderRadius: 22,
-      backgroundColor: "rgba(255,255,255,0.92)",
+      backgroundColor: t.mode === "dark" ? t.surface : "rgba(255,255,255,0.92)",
       alignItems: "center",
       justifyContent: "center",
       marginTop: 8,
