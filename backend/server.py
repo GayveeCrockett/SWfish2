@@ -45,6 +45,7 @@ async def list_fishes(
     colors: Optional[List[str]] = Query(default=None),
     diets: Optional[List[str]] = Query(default=None),
     habitats: Optional[List[str]] = Query(default=None),
+    swsa_habitats: Optional[List[str]] = Query(default=None),
     conservation: Optional[List[str]] = Query(default=None),
     can_eat: Optional[List[str]] = Query(default=None),
     poison: Optional[List[str]] = Query(default=None),
@@ -59,6 +60,8 @@ async def list_fishes(
         if diets and not _match_single(fish["diet"], diets):
             continue
         if not _match_any(fish["habitats"], habitats or []):
+            continue
+        if not _match_any(fish["swsa_habitats"], swsa_habitats or []):
             continue
         if conservation and not _match_single(fish["conservation_status"], conservation):
             continue

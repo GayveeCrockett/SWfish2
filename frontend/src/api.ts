@@ -8,7 +8,9 @@ export type Fish = {
   conservation_status: string;
   poison_toxin: string;
   habitats: string[];
+  swsa_habitats: string[];
   natural_hab_raw: string;
+  swsa_hab_raw: string;
   nifty_facts: string;
   can_eat: string;
   colors: string[];
@@ -20,6 +22,7 @@ export type FilterOptions = {
   colors: string[];
   diets: string[];
   habitats: string[];
+  swsa_habitats: string[];
   conservation: string[];
   can_eat: string[];
   poison: string[];
@@ -30,6 +33,7 @@ export type SearchFilters = {
   colors?: string[];
   diets?: string[];
   habitats?: string[];
+  swsa_habitats?: string[];
   conservation?: string[];
   can_eat?: string[];
   poison?: string[];
@@ -38,7 +42,7 @@ export type SearchFilters = {
 function buildQuery(filters: SearchFilters): string {
   const params = new URLSearchParams();
   if (filters.q) params.append("q", filters.q);
-  const multi: (keyof SearchFilters)[] = ["colors", "diets", "habitats", "conservation", "can_eat", "poison"];
+  const multi: (keyof SearchFilters)[] = ["colors", "diets", "habitats", "swsa_habitats", "conservation", "can_eat", "poison"];
   for (const key of multi) {
     const values = filters[key] as string[] | undefined;
     if (values && values.length) {

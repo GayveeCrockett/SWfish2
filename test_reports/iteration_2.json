@@ -1,0 +1,29 @@
+{
+  "summary": "Backend (13/13 pytest PASS) and Frontend (all SWSA + regression flows PASS) verified for new SWSA Habitat filter. /api/filters returns swsa_habitats with all 10 expected regions. /api/fishes?swsa_habitats=Red%20Sea returns exactly 4 fish; Indo-Pacific returns 64+ (majority); combined Red Sea + colors=yellow works. UI: 'SWSA Habitat' chip group renders below 'Natural Habitat'; selecting Red Sea + Show Results filters list to 4 cards and badge shows 1; Reset clears chips; clear-all works; existing filters/search/detail still work; fish/1 still shows Clown Fish with user-uploaded image.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "global", "issues": ["Console deprecation warning: 'shadow*' style props deprecated - use boxShadow (non-blocking, RN Web only)"]}
+    ],
+    "react_native_issues": []
+  },
+  "test_report_links": ["/app/backend/tests/test_reef_api.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "Optional: Replace deprecated shadow* style props with boxShadow for RN Web cleanliness"
+  ],
+  "critical_code_review_comments": [
+    "fish_data._normalize_habitat correctly maps natural_hab to all 10 expected regions; swsa_habitats currently defaults to natural_hab when swsa_hab not provided in RAW_FISH (acceptable per agent_to_agent_context_note)",
+    "server.py adds swsa_habitats Query param and uses _match_any with proper case-insensitive matching",
+    "Frontend SearchFilters/FilterOptions types extended with swsa_habitats; activeFilterCount memo includes swsa_habitats; FilterSheet renders new group with testIDs filter-swsa_habitats-{region}",
+    "All testIDs are present: filter-swsa_habitats-<Region>, reset-filters, apply-filters-btn, open-filters-btn, clear-all-filters"
+  ],
+  "updated_files": ["/app/backend/tests/test_reef_api.py"],
+  "success_rate": {"backend": "100% (13/13)", "frontend": "100%"},
+  "seed_data_creation": "None - static fish_data.py dataset (now 92 species; previously 89)",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Fish dataset grew from 89 -> 92. Use BASE_URL from EXPO_PUBLIC_BACKEND_URL. SWSA chips testIDs: filter-swsa_habitats-{Region} (case sensitive, exact name e.g. 'Red Sea','Indo-Pacific'). Mobile viewport 390x844. Red Sea expected exactly 4 fishes. Indo-Pacific is the majority region. swsa_habitats currently mirrors natural habitat regions because RAW_FISH does not include swsa_hab override key.",
+  "rca_of_issue": "N/A - feature working as specified"
+}
