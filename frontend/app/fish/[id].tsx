@@ -195,7 +195,7 @@ function StatCard({
         <Ionicons name={icon} size={18} color={tint} />
       </View>
       <Text style={styles.bentoLabel}>{label}</Text>
-      <Text style={styles.bentoValue} numberOfLines={2}>{value}</Text>
+      <Text style={styles.bentoValue} numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.7}>{value}</Text>
     </View>
   );
 }
@@ -275,9 +275,9 @@ const makeStyles = (t: Theme) =>
       shadowRadius: 16,
       elevation: 4,
     },
-    bentoIcon: { width: 36, height: 36, borderRadius: 18, alignItems: "center", justifyContent: "center", marginBottom: 10 },
-    bentoLabel: { ...FONTS.label, color: t.textSecondary, marginBottom: 2 },
-    bentoValue: { ...FONTS.h3, color: t.textPrimary },
+    bentoIcon: { width: 32, height: 32, borderRadius: 16, alignItems: "center", justifyContent: "center", marginBottom: 8 },
+    bentoLabel: { fontFamily: "Nunito_700Bold", fontSize: 11, letterSpacing: 0.6, textTransform: "uppercase", color: t.textSecondary, marginBottom: 2 },
+    bentoValue: { fontFamily: "Fredoka_500Medium", fontSize: 16, color: t.textPrimary },
 
     banner: {
       flexDirection: "row",

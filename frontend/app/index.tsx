@@ -121,8 +121,8 @@ export default function Home() {
         <View style={styles.header}>
           <View style={styles.headerRow}>
             <View style={{ flex: 1 }}>
-              <Text style={styles.eyebrow}>REEF SEARCH</Text>
-              <Text style={styles.title}>Discover the reef</Text>
+              <Text style={styles.eyebrow}>SEA WORLD SAN ANTONIO</Text>
+              <Text style={styles.title}>Explorer&apos;s Reef</Text>
               <Text style={styles.subtitle}>{fishes.length} species · from clownfish to koi</Text>
             </View>
             <TouchableOpacity
