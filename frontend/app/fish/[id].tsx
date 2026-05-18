@@ -11,7 +11,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { FONTS, SPACING, RADIUS, COLOR_SWATCH, FRUIT_EMOJI, PLACEHOLDER_IMAGE, useTheme, Theme } from "../../src/theme";
+import { FONTS, SPACING, RADIUS, COLOR_SWATCH, SWSA_ICON, PLACEHOLDER_IMAGE, useTheme, Theme } from "../../src/theme";
 import { fetchFish, Fish } from "../../src/api";
 
 export default function FishDetail() {
@@ -143,13 +143,15 @@ export default function FishDetail() {
           )}
         </Section>
 
-        {fish.swsa_fruit ? (
+        {fish.swsa_habitats && fish.swsa_habitats.length > 0 ? (
           <Section theme={theme} title="SWSA Habitat">
             <View style={styles.habRow}>
-              <View style={styles.fruitPill} testID="swsa-fruit-pill">
-                <Text style={styles.fruitPillEmoji}>{FRUIT_EMOJI[fish.swsa_fruit] || "🐟"}</Text>
-                <Text style={styles.fruitPillText}>{capitalize(fish.swsa_fruit)}</Text>
-              </View>
+              {fish.swsa_habitats.map((h) => (
+                <View key={h} style={styles.fruitPill} testID={`swsa-pill-${h}`}>
+                  <Text style={styles.fruitPillEmoji}>{SWSA_ICON[h] || "🐟"}</Text>
+                  <Text style={styles.fruitPillText}>{h}</Text>
+                </View>
+              ))}
             </View>
           </Section>
         ) : null}

@@ -22,7 +22,7 @@ import {
   SPACING,
   RADIUS,
   COLOR_SWATCH,
-  FRUIT_EMOJI,
+  SWSA_ICON,
   PLACEHOLDER_IMAGE,
   useTheme,
   Theme,
@@ -89,7 +89,7 @@ export default function Home() {
           )}
           {item.swsa_fruit && (
             <View style={styles.fruitBadge}>
-              <Text style={styles.fruitEmoji}>{FRUIT_EMOJI[item.swsa_fruit] || "🐟"}</Text>
+              <Text style={styles.fruitEmoji}>{SWSA_ICON[item.swsa_fruit] || "🐟"}</Text>
             </View>
           )}
         </View>
@@ -249,7 +249,7 @@ function FilterSheet({
     label: string,
     key: keyof SearchFilters,
     values: string[],
-    variant: "default" | "color" | "fruit" = "default"
+    variant: "default" | "color" | "swsa" = "default"
   ) => {
     const active = (filters[key] as string[] | undefined) || [];
     return (
@@ -274,8 +274,8 @@ function FilterSheet({
                     ]}
                   />
                 )}
-                {variant === "fruit" && (
-                  <Text style={styles.chipFruit}>{FRUIT_EMOJI[v] || ""}</Text>
+                {variant === "swsa" && (
+                  <Text style={styles.chipFruit}>{SWSA_ICON[v] || ""}</Text>
                 )}
                 <Text style={[styles.chipText, isActive && styles.chipTextActive]}>{capitalize(v)}</Text>
               </TouchableOpacity>
@@ -301,7 +301,7 @@ function FilterSheet({
           {renderGroup("Color", "colors", options.colors, "color")}
           {renderGroup("Diet", "diets", options.diets)}
           {renderGroup("Natural Habitat", "habitats", options.habitats)}
-          {renderGroup("SWSA Habitat", "swsa_habitats", options.swsa_habitats, "fruit")}
+          {renderGroup("SWSA Habitat", "swsa_habitats", options.swsa_habitats, "swsa")}
           {renderGroup("Conservation", "conservation", options.conservation)}
           {renderGroup("Can I eat that?", "can_eat", options.can_eat)}
           {renderGroup("Poison / Toxin", "poison", options.poison)}

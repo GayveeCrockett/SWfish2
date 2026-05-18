@@ -122,11 +122,19 @@ export const COLOR_SWATCH: Record<string, string> = {
   brown: "#8B5E3C",
 };
 
-export const FRUIT_EMOJI: Record<string, string> = {
-  banana: "🍌",
-  mango: "🥭",
-  kiwi: "🥝",
-  strawberry: "🍓",
+export const SWSA_ICON: Record<string, string> = {
+  "Turtle Reef": "🐢",
+  "Coral Reef": "🪸",
+  "Shark Tank": "🦈",
+  "Tank A": "🅰️",
+  "Tank B": "🅱️",
+  "Gallery 6": "🖼️",
+  "Gallery 7": "🖼️",
+  "Tank 1": "1️⃣",
+  "Tank 2": "2️⃣",
+  "Tank 3": "3️⃣",
+  "Tank 4": "4️⃣",
+  "Tank 5": "5️⃣",
 };
 
 export const PLACEHOLDER_IMAGE =
