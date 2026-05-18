@@ -3,6 +3,7 @@ const BASE_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 export type Fish = {
   id: string;
   name: string;
+  scientific_name: string;
   diet: string;
   longevity: string;
   conservation_status: string;

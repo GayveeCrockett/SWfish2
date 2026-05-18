@@ -95,6 +95,9 @@ export default function Home() {
         </View>
         <View style={styles.cardBody}>
           <Text style={styles.cardTitle} numberOfLines={1}>{capitalize(item.name)}</Text>
+          {item.scientific_name ? (
+            <Text style={styles.cardSci} numberOfLines={1}>{item.scientific_name}</Text>
+          ) : null}
           <Text style={styles.cardMeta} numberOfLines={1}>
             {item.diet ? capitalize(item.diet) : "Unknown diet"} · {item.habitats[0] || "Unknown habitat"}
           </Text>
@@ -441,6 +444,7 @@ const makeStyles = (t: Theme) =>
     fruitEmoji: { fontSize: 16 },
     cardBody: { padding: 12 },
     cardTitle: { ...FONTS.h3, color: t.textPrimary },
+    cardSci: { fontFamily: "Nunito_400Regular", fontStyle: "italic", fontSize: 11, color: t.textSecondary, marginTop: 1 },
     cardMeta: { ...FONTS.caption, color: t.textSecondary, marginTop: 2 },
     colorRow: { flexDirection: "row", gap: 6, marginTop: 10 },
     colorDot: { width: 14, height: 14, borderRadius: 7, borderWidth: 1 },

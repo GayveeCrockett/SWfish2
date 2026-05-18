@@ -76,6 +76,9 @@ export default function FishDetail() {
             {(fish.habitats[0] || "REEF").toUpperCase()} SPECIES
           </Text>
           <Text style={styles.title} testID="fish-name">{capitalize(fish.name)}</Text>
+          {fish.scientific_name ? (
+            <Text style={styles.titleSci} testID="fish-scientific-name">{fish.scientific_name}</Text>
+          ) : null}
 
           <View style={styles.colorChipRow}>
             {fish.colors.map((c) => (
@@ -249,6 +252,7 @@ const makeStyles = (t: Theme) =>
     titleBlock: { marginBottom: SPACING.md },
     eyebrow: { ...FONTS.label, color: t.primaryLight },
     title: { ...FONTS.h1, color: t.textPrimary, marginTop: 4 },
+    titleSci: { fontFamily: "Nunito_400Regular", fontStyle: "italic", fontSize: 14, color: t.textSecondary, marginTop: 2 },
 
     colorChipRow: { flexDirection: "row", flexWrap: "wrap", gap: 8, marginTop: 14 },
     colorChip: {

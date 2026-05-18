@@ -15,10 +15,25 @@ _IMAGES_PATH = ROOT / "fish_images.json"
 
 RAW_FISH: List[Dict[str, Any]] = json.loads(_DATASET_PATH.read_text())
 
-# The orange clownfish (most common reef clown fish) keeps the user-uploaded image
+# Per-species image overrides (user uploads, mapped by common name).
 _IMAGE_OVERRIDES: Dict[str, str] = {
     "orange clownfish": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/9vuy2m5y_clown.jpg",
     "clown fish": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/9vuy2m5y_clown.jpg",
+    "agitated carpet anemone": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/eyaq3k2z_Stichodactyla.jpg",
+    "bicolor fox face": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/9ex9ira3_Siganus%20uspi.jpg",
+    "bignose unicorn tang": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/u55sb0po_Naso%20vlamingii.webp",
+    "black boring sea urchin": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/0rt9clim_Echinometra%20mathaei.webp",
+}
+
+# Common name -> scientific name (binomial). Sourced from user uploads / known refs.
+_SCIENTIFIC_NAMES: Dict[str, str] = {
+    "agitated carpet anemone": "Stichodactyla haddoni",
+    "bicolor fox face": "Siganus uspi",
+    "bignose unicorn tang": "Naso vlamingii",
+    "black boring sea urchin": "Echinometra mathaei",
+    "black brittlestar": "Ophiocoma echinata",
+    "orange clownfish": "Amphiprion percula",
+    "clown fish": "Amphiprion percula",
 }
 
 try:
@@ -61,10 +76,12 @@ def build_fishes() -> List[Dict[str, Any]]:
     for idx, f in enumerate(RAW_FISH):
         name = f.get("name", "")
         image_url = _IMAGE_OVERRIDES.get(name) or _WIKI_IMAGES.get(name, "")
+        scientific = _SCIENTIFIC_NAMES.get(name, "")
         swsa = _parse_swsa(f.get("swsa_hab"))
         result.append({
             "id": str(idx + 1),
             "name": name,
+            "scientific_name": scientific,
             "diet": _normalize_diet(f.get("diet", "")),
             "longevity": f.get("longevity", "") or "Unknown",
             "conservation_status": f.get("conservation_status", "") or "Unknown",
