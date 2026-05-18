@@ -1,9 +1,9 @@
 """Fish data loaded from the parsed Reef Search PDF dataset.
 
-Static dataset built from `parse_pdf.py` (~340 species across the SWSA exhibits).
-SWSA habitat is now a list of tank/gallery/reef tags (e.g. "Turtle Reef",
-"Coral Reef", "Tank A", "Tank B", "Gallery 6", "Gallery 7", "Shark Tank",
-"Tank 1"..."Tank 5"). The optional clown-fish image override stays in place.
+Verbatim PDF dataset built by `parse_verbatim.py`. All text fields are taken
+literally from the source PDF (Sea World San Antonio: Explorer's Reef). The
+backend does NO normalization or internet enrichment for text — only image
+URLs are mapped through user-uploaded artifacts.
 """
 from typing import List, Dict, Any
 import json
@@ -34,35 +34,12 @@ _IMAGE_OVERRIDES: Dict[str, str] = {
 
 # Manual scientific-name overrides for OCR-quirky names that don't match the
 # PDF lookup exactly (e.g. extra spaces, alternate spellings).
-_SCIENTIFIC_NAMES: Dict[str, str] = {
-    "otocinclus       catfish": "Otocinclus",
-    "double saddled butterflyfish": "Chaetodon ulietensis",
-    "doubleband surgeon": "Acanthurus tennentii",
-    "emperor angelfish (youth)": "Pomacanthus imperator",
-    "freckletail/lyretail angelfish": "Genicanthus semifasciatus",
-    "horned butterflyflsh": "Chaetodon corallicola",
-    "longfin banner fish": "Heniochus acuminatus",
-    "longnosed butterfly fish": "Forcipiger flavissimus",
-    "masked rabbit fish": "Siganus puellus",
-    "pearl scale butterfly fish": "Chaetodon xanthurus",
-    "zebrasoma     tang": "Zebrasoma",
-    "vegabond butterflyfish": "Chaetodon vagabundus",
-    "wavy turban snail": "Turbo fluctuosus",
-}
+_SCIENTIFIC_NAMES: Dict[str, str] = {}
 
 try:
     _WIKI_IMAGES: Dict[str, str] = json.loads(_IMAGES_PATH.read_text())
 except FileNotFoundError:
     _WIKI_IMAGES = {}
-
-
-def _normalize_diet(raw: str) -> str:
-    # `parse_pdf.py` already normalises diet, but we keep this as a safety net.
-    r = (raw or "").lower().strip()
-    if r in {"omnivore", "carnivore", "herbivore", "planktivore",
-             "zooplankton", "zooxanthellae", "filter feeder"}:
-        return r
-    return r
 
 
 def _parse_colors(desc: str) -> List[str]:
@@ -72,6 +49,7 @@ def _parse_colors(desc: str) -> List[str]:
 
 
 def _parse_swsa(raw) -> List[str]:
+    """Split swsa habitat string like '2, turtle reef' into individual tags."""
     if isinstance(raw, list):
         return [str(x).strip() for x in raw if str(x).strip()]
     if not raw:
@@ -89,26 +67,27 @@ def build_fishes() -> List[Dict[str, Any]]:
     result = []
     for idx, f in enumerate(RAW_FISH):
         name = f.get("name", "")
-        image_url = _IMAGE_OVERRIDES.get(name) or _WIKI_IMAGES.get(name, "")
-        scientific = _SCIENTIFIC_NAMES.get(name) or _PDF_SCIENTIFIC.get(name, "")
+        image_url = _IMAGE_OVERRIDES.get(name.lower()) or _IMAGE_OVERRIDES.get(name) or _WIKI_IMAGES.get(name, "")
+        scientific = _SCIENTIFIC_NAMES.get(name) or _PDF_SCIENTIFIC.get(name.lower()) or _PDF_SCIENTIFIC.get(name, "")
         swsa = _parse_swsa(f.get("swsa_hab"))
+        # All text values are taken VERBATIM from the PDF — no fallbacks to "Unknown"
         result.append({
             "id": str(idx + 1),
             "name": name,
             "scientific_name": scientific,
-            "diet": _normalize_diet(f.get("diet", "")),
-            "longevity": f.get("longevity", "") or "Unknown",
-            "conservation_status": f.get("conservation_status", "") or "Unknown",
-            "poison_toxin": (f.get("poison_toxin") or "no").lower(),
+            "diet": (f.get("diet") or "").strip(),
+            "longevity": (f.get("longevity") or "").strip(),
+            "conservation_status": (f.get("conservation_status") or "").strip(),
+            "poison_toxin": (f.get("poison_toxin") or "").strip(),
             "habitats": _parse_habitats(f.get("natural_hab", "")),
             "swsa_habitats": swsa,
             "swsa_fruit": swsa[0] if swsa else "",
-            "natural_hab_raw": f.get("natural_hab", ""),
+            "natural_hab_raw": (f.get("natural_hab") or "").strip(),
             "swsa_hab_raw": ", ".join(swsa),
             "nifty_facts": (f.get("nifty_facts") or "").strip(),
-            "can_eat": f.get("can_eat", "") or "Unknown",
+            "can_eat": (f.get("can_eat") or "").strip(),
             "colors": _parse_colors(f.get("description", "")),
-            "description": f.get("description", ""),
+            "description": (f.get("description") or "").strip(),
             "image_url": image_url,
         })
     return result
@@ -135,7 +114,8 @@ def all_filter_options() -> Dict[str, List[str]]:
             conservation.add(f["conservation_status"])
         if f["can_eat"]:
             can_eat.add(f["can_eat"])
-        poison.add(f["poison_toxin"])
+        if f["poison_toxin"]:
+            poison.add(f["poison_toxin"])
     return {
         "colors": sorted(colors),
         "diets": sorted(diets),
