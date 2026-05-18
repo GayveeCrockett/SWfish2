@@ -12,8 +12,14 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 _DATASET_PATH = ROOT / "fish_dataset.json"
 _IMAGES_PATH = ROOT / "fish_images.json"
+_SCI_PATH = ROOT / "scientific_names.json"
 
 RAW_FISH: List[Dict[str, Any]] = json.loads(_DATASET_PATH.read_text())
+
+try:
+    _PDF_SCIENTIFIC: Dict[str, str] = json.loads(_SCI_PATH.read_text())
+except FileNotFoundError:
+    _PDF_SCIENTIFIC = {}
 
 # Per-species image overrides (user uploads, mapped by common name).
 _IMAGE_OVERRIDES: Dict[str, str] = {
@@ -23,17 +29,25 @@ _IMAGE_OVERRIDES: Dict[str, str] = {
     "bicolor fox face": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/9ex9ira3_Siganus%20uspi.jpg",
     "bignose unicorn tang": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/u55sb0po_Naso%20vlamingii.webp",
     "black boring sea urchin": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/0rt9clim_Echinometra%20mathaei.webp",
+    "black brittlestar": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/rgnqc4d6_Ophiocoma%20echinata.jpg",
 }
 
-# Common name -> scientific name (binomial). Sourced from user uploads / known refs.
+# Manual scientific-name overrides for OCR-quirky names that don't match the
+# PDF lookup exactly (e.g. extra spaces, alternate spellings).
 _SCIENTIFIC_NAMES: Dict[str, str] = {
-    "agitated carpet anemone": "Stichodactyla haddoni",
-    "bicolor fox face": "Siganus uspi",
-    "bignose unicorn tang": "Naso vlamingii",
-    "black boring sea urchin": "Echinometra mathaei",
-    "black brittlestar": "Ophiocoma echinata",
-    "orange clownfish": "Amphiprion percula",
-    "clown fish": "Amphiprion percula",
+    "otocinclus       catfish": "Otocinclus",
+    "double saddled butterflyfish": "Chaetodon ulietensis",
+    "doubleband surgeon": "Acanthurus tennentii",
+    "emperor angelfish (youth)": "Pomacanthus imperator",
+    "freckletail/lyretail angelfish": "Genicanthus semifasciatus",
+    "horned butterflyflsh": "Chaetodon corallicola",
+    "longfin banner fish": "Heniochus acuminatus",
+    "longnosed butterfly fish": "Forcipiger flavissimus",
+    "masked rabbit fish": "Siganus puellus",
+    "pearl scale butterfly fish": "Chaetodon xanthurus",
+    "zebrasoma     tang": "Zebrasoma",
+    "vegabond butterflyfish": "Chaetodon vagabundus",
+    "wavy turban snail": "Turbo fluctuosus",
 }
 
 try:
@@ -76,7 +90,7 @@ def build_fishes() -> List[Dict[str, Any]]:
     for idx, f in enumerate(RAW_FISH):
         name = f.get("name", "")
         image_url = _IMAGE_OVERRIDES.get(name) or _WIKI_IMAGES.get(name, "")
-        scientific = _SCIENTIFIC_NAMES.get(name, "")
+        scientific = _SCIENTIFIC_NAMES.get(name) or _PDF_SCIENTIFIC.get(name, "")
         swsa = _parse_swsa(f.get("swsa_hab"))
         result.append({
             "id": str(idx + 1),
