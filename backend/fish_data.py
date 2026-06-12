@@ -32,9 +32,12 @@ _IMAGE_OVERRIDES: Dict[str, str] = {
     "black brittlestar": "https://customer-assets.emergentagent.com/job_fish-search-app/artifacts/rgnqc4d6_Ophiocoma%20echinata.jpg",
 }
 
-# Manual scientific-name overrides for OCR-quirky names that don't match the
-# PDF lookup exactly (e.g. extra spaces, alternate spellings).
-_SCIENTIFIC_NAMES: Dict[str, str] = {}
+# Manual scientific-name overrides — applied AFTER PDF lookup. Use these to
+# correct OCR quirks or to set a canonical species for a generic PDF entry.
+_SCIENTIFIC_NAMES: Dict[str, str] = {
+    "turban snail": "Turbo marmoratus",
+    "moon coral": "Acanthastrea faviaformis",
+}
 
 try:
     _WIKI_IMAGES: Dict[str, str] = json.loads(_IMAGES_PATH.read_text())
@@ -65,14 +68,23 @@ def _parse_habitats(raw: str) -> List[str]:
 
 def build_fishes() -> List[Dict[str, Any]]:
     result = []
-    for idx, f in enumerate(RAW_FISH):
+    seen_sci: Dict[str, int] = {}  # canonical sci (lowercase) -> index in result
+    for f in RAW_FISH:
         name = f.get("name", "")
         image_url = _IMAGE_OVERRIDES.get(name.lower()) or _IMAGE_OVERRIDES.get(name) or _WIKI_IMAGES.get(name, "")
-        scientific = _SCIENTIFIC_NAMES.get(name) or _PDF_SCIENTIFIC.get(name.lower()) or _PDF_SCIENTIFIC.get(name, "")
+        scientific = (
+            _SCIENTIFIC_NAMES.get(name.lower())
+            or _SCIENTIFIC_NAMES.get(name)
+            or _PDF_SCIENTIFIC.get(name.lower())
+            or _PDF_SCIENTIFIC.get(name, "")
+        )
+        # Dedup by scientific name (case-insensitive). First occurrence wins.
+        sci_key = scientific.strip().lower()
+        if sci_key and sci_key in seen_sci:
+            continue
         swsa = _parse_swsa(f.get("swsa_hab"))
-        # All text values are taken VERBATIM from the PDF — no fallbacks to "Unknown"
-        result.append({
-            "id": str(idx + 1),
+        record = {
+            "id": str(len(result) + 1),
             "name": name,
             "scientific_name": scientific,
             "diet": (f.get("diet") or "").strip(),
@@ -89,7 +101,10 @@ def build_fishes() -> List[Dict[str, Any]]:
             "colors": _parse_colors(f.get("description", "")),
             "description": (f.get("description") or "").strip(),
             "image_url": image_url,
-        })
+        }
+        if sci_key:
+            seen_sci[sci_key] = len(result)
+        result.append(record)
     return result
 
 
