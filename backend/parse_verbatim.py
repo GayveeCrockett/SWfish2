@@ -13,19 +13,19 @@ import pdfplumber
 PDF_PATH = Path("/tmp/reef.pdf")
 OUT_PATH = Path("/app/backend/fish_dataset.json")
 
-# Column start x-positions (slightly below observed minimums so all chars fit).
+# Column start x-positions (calibrated for the latest PDF, June 2025).
 COLUMN_STARTS = [
     ("name",         50),
-    ("diet",        184),
-    ("longevity",   208),
-    ("conservation", 250),
-    ("poison",      292),
-    ("swsa",        335),
-    ("natural",     378),
-    ("nifty",       421),
-    ("can_eat",     463),
-    ("description", 505),
-    ("scientific", 624),
+    ("diet",        205),
+    ("longevity",   233),
+    ("conservation", 282),
+    ("poison",      302),
+    ("swsa",        320),
+    ("natural",     369),
+    ("nifty",       386),
+    ("can_eat",     415),
+    ("description", 497),
+    ("scientific", 600),
 ]
 
 

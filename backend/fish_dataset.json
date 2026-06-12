@@ -45,7 +45,7 @@
     "swsa_hab": "2",
     "nifty_facts": "Lives in symbiotic relationship with stinging sea anemones.",
     "can_eat": "Technically",
-    "description": "black, white"
+    "description": "black, white, orange"
   },
   {
     "name": "arabian angelfish",
@@ -138,7 +138,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Atlantic/Caribbean coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Has a silver-white body with a black bar on the head that runs across the eyes.",
     "can_eat": "Technically",
     "description": "white, black"
@@ -188,7 +188,7 @@
     "natural_hab": "Eastern Pacific reefs",
     "swsa_hab": "turtle reef, coral reef",
     "nifty_facts": "Cleans parasites off other fish",
-    "can_eat": "",
+    "can_eat": "Technically",
     "description": "black, white, yellow"
   },
   {
@@ -212,7 +212,7 @@
     "natural_hab": "Indo-Pacific",
     "swsa_hab": "turtle reef, coral reef",
     "nifty_facts": "Venomous dorsal spines",
-    "can_eat": "",
+    "can_eat": "NO!",
     "description": "white, black, yellow, brown"
   },
   {
@@ -246,9 +246,9 @@
     "conservation_status": "NT",
     "poison_toxin": "no",
     "natural_hab": "Amazon basin",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Swims at an angle",
-    "can_eat": "",
+    "can_eat": "Technically",
     "description": "red, silver, yellow, black"
   },
   {
@@ -258,7 +258,7 @@
     "conservation_status": "?",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific",
-    "swsa_hab": "tank A, turtle reef, coral reef",
+    "swsa_hab": "A, turtle reef, coral reef",
     "nifty_facts": "Bright yellow with blue accents around the eyes.",
     "can_eat": "Technically",
     "description": "yellow, blue"
@@ -294,10 +294,10 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific",
-    "swsa_hab": "turtle reef, tank A, coral reef",
-    "nifty_facts": "Uses chin barbels to detect buried preyred, white, yellow",
-    "can_eat": "",
-    "description": ""
+    "swsa_hab": "turtle reef, A, coral reef",
+    "nifty_facts": "Uses chin barbels to detect buried prey",
+    "can_eat": "Technically",
+    "description": "red, white, yellow"
   },
   {
     "name": "bicolor parrotfish",
@@ -320,7 +320,7 @@
     "natural_hab": "Indo-Pacific",
     "swsa_hab": "coral reef",
     "nifty_facts": "Has a prominent bump on snout",
-    "can_eat": "",
+    "can_eat": "Technically",
     "description": "black, white, blue, yellow"
   },
   {
@@ -332,7 +332,7 @@
     "natural_hab": "Indo-Pacific",
     "swsa_hab": "4",
     "nifty_facts": "Thin branching structure resembling a bird's nest",
-    "can_eat": "Technically",
+    "can_eat": "NO!",
     "description": "purple, white"
   },
   {
@@ -414,7 +414,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "South Pacific reefs",
-    "swsa_hab": "turtle reef, tank a",
+    "swsa_hab": "turtle reef, A",
     "nifty_facts": "Juveniles have a different color pattern than adults.",
     "can_eat": "Technically",
     "description": "black, white, yellow"
@@ -438,7 +438,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indian Ocean reefs",
-    "swsa_hab": "turtle reef, tank a, coral reef",
+    "swsa_hab": "turtle reef, A, coral reef",
     "nifty_facts": "An active swimmer that utilizes the mid to upper water column.",
     "can_eat": "Technically",
     "description": "black, white, yellow"
@@ -534,7 +534,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-West Pacific reefs",
-    "swsa_hab": "turtle reef, coral reef, tank a",
+    "swsa_hab": "turtle reef, coral reef, A",
     "nifty_facts": "Males have a black spot on their chest and vertical stripes, while females are yellow and blue.",
     "can_eat": "Technically",
     "description": "black, white, yellow, blue"
@@ -594,7 +594,7 @@
     "conservation_status": "NT",
     "poison_toxin": "no",
     "natural_hab": "Amazon basin",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Gets its name from the distinctive red spot on its side.",
     "can_eat": "Technically",
     "description": "white, red"
@@ -606,7 +606,7 @@
     "conservation_status": "VU",
     "poison_toxin": "yes",
     "natural_hab": "Peruvian Amazon",
-    "swsa_hab": "gallery 6",
+    "swsa_hab": "6",
     "nifty_facts": "Known for its striking bright red head and black-patterned body.",
     "can_eat": "NO!",
     "description": "black, red"
@@ -678,7 +678,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Caribbean reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "They are simultaneous hermaphrodites, possessing both male and female reproductive organs.",
     "can_eat": "Technically",
     "description": "blue"
@@ -738,7 +738,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Exhibits sexual dimorphism.",
     "can_eat": "Technically",
     "description": "white, black, blue"
@@ -750,7 +750,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Popularized by the movie Finding Nemo.",
     "can_eat": "Technically",
     "description": "black, blue"
@@ -798,7 +798,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Caribbean",
-    "swsa_hab": "turtle reef, tank b",
+    "swsa_hab": "turtle reef, B",
     "nifty_facts": "Can change sex from female to male.",
     "can_eat": "Technically",
     "description": "white, blue, yellow, black"
@@ -918,7 +918,7 @@
     "conservation_status": "VU",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Lives exclusively in Acropora corals.",
     "can_eat": "NO!",
     "description": "white, black, yellow"
@@ -966,7 +966,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Caribbean/Atlantic",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Commonly found in schools over coral reefs.",
     "can_eat": "Technically",
     "description": "white, brown"
@@ -978,7 +978,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Amazon Basin",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Known to live longer in captivity than in the wild.",
     "can_eat": "Technically",
     "description": "blue, white, red"
@@ -990,7 +990,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "South America",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Attach themselves to rocks and driftwood to feed off algae.",
     "can_eat": "Technically",
     "description": "black, white, brown"
@@ -1038,7 +1038,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific reefs",
-    "swsa_hab": "turtle reef, tank A, coral reef",
+    "swsa_hab": "turtle reef, A, coral reef",
     "nifty_facts": "Juveniles mimic dwarf angelfish to avoid predators.",
     "can_eat": "Technically",
     "description": "brown, yellow"
@@ -1062,7 +1062,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Tropical and subtropical oceans",
-    "swsa_hab": "Tank A, coral reef",
+    "swsa_hab": "A, coral reef",
     "nifty_facts": "Often form large aggregations above coral reefs.",
     "can_eat": "Technically",
     "description": "orange, black, green, yellow, blue, red"
@@ -1098,7 +1098,7 @@
     "conservation_status": "NT",
     "poison_toxin": "no",
     "natural_hab": "South America",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Has specialized teeth for eating wood.",
     "can_eat": "Technically",
     "description": "yellow, black"
@@ -1170,7 +1170,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific",
-    "swsa_hab": "turtle reef, tank a, coral reef",
+    "swsa_hab": "turtle reef, A, coral reef",
     "nifty_facts": "Named for its black vertical stripes resembling a prison uniform.",
     "can_eat": "Technically",
     "description": "white, black, yellow"
@@ -1191,8 +1191,8 @@
     "name": "coral",
     "diet": "Zooxanthellae/plankton",
     "longevity": "100+ years",
-    "conservation_status": "Varies",
-    "poison_toxin": "yes",
+    "conservation_status": "Variesyes",
+    "poison_toxin": "",
     "natural_hab": "Oceans worldwide",
     "swsa_hab": "2,4",
     "nifty_facts": "Corals are animals, not plants, and build massive reef structures.",
@@ -1206,7 +1206,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific",
-    "swsa_hab": "turtle reef, tank A",
+    "swsa_hab": "turtle reef, A",
     "nifty_facts": "Displays sexual dimorphism in its patterns.",
     "can_eat": "Technically",
     "description": "blue, orange"
@@ -1242,7 +1242,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "",
-    "swsa_hab": "turtle reef, tank A, Coral reef",
+    "swsa_hab": "turtle reef, A, Coral reef",
     "nifty_facts": "",
     "can_eat": "Technically",
     "description": "yellow, blue, pink"
@@ -1254,7 +1254,7 @@
     "conservation_status": "LC",
     "poison_toxin": "yes",
     "natural_hab": "South America",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Can breathe air using their intestines.",
     "can_eat": "Technically",
     "description": "orange, white, black, yellow"
@@ -1422,7 +1422,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific",
-    "swsa_hab": "turtle reef, tank a, coral reef",
+    "swsa_hab": "turtle reef, A, coral reef",
     "nifty_facts": "Often forms pairs and feeds on coral polyps and algae.",
     "can_eat": "Technically",
     "description": "white, black, yellow"
@@ -1470,7 +1470,7 @@
     "conservation_status": "LC",
     "poison_toxin": "yes",
     "natural_hab": "Northeastern South America tropical forests",
-    "swsa_hab": "gallery 6",
+    "swsa_hab": "6",
     "nifty_facts": "Tadpoles climb onto their father's back so he can take them to water, where they remain until they mature.",
     "can_eat": "NO!",
     "description": "yellow, blue"
@@ -1590,7 +1590,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Tropical western Atlantic Ocean reef environments",
-    "swsa_hab": "5, tank b",
+    "swsa_hab": "5, B",
     "nifty_facts": "They can be found under ledges, or close to recesses in corals, sometimes swimming upside down.",
     "can_eat": "Technically",
     "description": "purple, yellow"
@@ -1614,7 +1614,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A, coral reef, turtle reef",
+    "swsa_hab": "A, coral reef, turtle reef",
     "nifty_facts": "Also known as the threadfin butterflyfish.",
     "can_eat": "Technically",
     "description": "white, yellow, black"
@@ -1673,9 +1673,9 @@
     "longevity": "5-10 years",
     "conservation_status": "LC",
     "poison_toxin": "no",
-    "natural_hab": "Pacific; coralMales have zebra stripes, females do not.",
-    "swsa_hab": "4, turtle reef, tank a",
-    "nifty_facts": "",
+    "natural_hab": "Pacific; coral",
+    "swsa_hab": "4, turtle reef",
+    "nifty_facts": "Males have zebra stripes, females do not.",
     "can_eat": "Technically",
     "description": "orange, black, blue"
   },
@@ -1686,7 +1686,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Nocturnal and hides in caves during the day.",
     "can_eat": "Technically",
     "description": "orange, black"
@@ -1698,7 +1698,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Pacific Ocean coral reefs",
-    "swsa_hab": "2,4, Tank A",
+    "swsa_hab": "2,4, A",
     "nifty_facts": "Lacks a swim bladder, so it perches on corals.",
     "can_eat": "Technically",
     "description": "orange, black"
@@ -1722,7 +1722,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Indian Ocean",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Named for its bold stripes.",
     "can_eat": "Technically",
     "description": "black, white"
@@ -1830,7 +1830,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Grunts by grinding its pharyngeal teeth.",
     "can_eat": "Technically",
     "description": "yellow, blue, brown"
@@ -1890,7 +1890,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "turtle reef, tank a",
+    "swsa_hab": "turtle reef, A",
     "nifty_facts": "More peaceful than most triggerfish species.",
     "can_eat": "Technically",
     "description": "yellow, white, black, blue"
@@ -1926,7 +1926,7 @@
     "conservation_status": "LC",
     "poison_toxin": "yes",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "4, tank a",
+    "swsa_hab": "4, A",
     "nifty_facts": "Has venomous dorsal spines.",
     "can_eat": "Technically",
     "description": "brown, yellow"
@@ -1950,7 +1950,7 @@
     "conservation_status": "LC",
     "poison_toxin": "yes",
     "natural_hab": "Tropical and subtropical oceans",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Known for its fearsome appearance and sharp teeth.",
     "can_eat": "NO!",
     "description": "silver"
@@ -1986,7 +1986,7 @@
     "conservation_status": "LC",
     "poison_toxin": "yes",
     "natural_hab": "Central and South American rainforests",
-    "swsa_hab": "gallery 6",
+    "swsa_hab": "6",
     "nifty_facts": "Gets its toxicity from its diet of ants and mites.",
     "can_eat": "NO!",
     "description": "black, green"
@@ -1998,7 +1998,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "turtle reef, coral reef, tank a",
+    "swsa_hab": "turtle reef, coral reef, A",
     "nifty_facts": "Very peaceful schooling fish.",
     "can_eat": "Technically",
     "description": "green, white, blue"
@@ -2082,7 +2082,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Simultaneous hermaphrodite.",
     "can_eat": "Technically",
     "description": "white, black, yellow"
@@ -2130,7 +2130,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Pacific Ocean coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Endemic to Hawaii.",
     "can_eat": "Technically",
     "description": "red, white"
@@ -2166,7 +2166,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Gets its name from its elongated dorsal fin.",
     "can_eat": "Technically",
     "description": "black, white"
@@ -2202,7 +2202,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Has a distinct U-shaped mark behind its eye.",
     "can_eat": "Technically",
     "description": "red, white"
@@ -2214,7 +2214,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Develops a prominent hump on its forehead as it ages.",
     "can_eat": "Technically",
     "description": "white, black, yellow, brown"
@@ -2310,7 +2310,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "east pacific",
-    "swsa_hab": "tank a, turtle reef, coral reef",
+    "swsa_hab": "A, turtle reef, coral reef",
     "nifty_facts": "Often confused with the Maculosus Angelfish.",
     "can_eat": "Technically",
     "description": "yellow, white, blue"
@@ -2382,7 +2382,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "turtle reef, tank a",
+    "swsa_hab": "turtle reef, A",
     "nifty_facts": "One of the few angelfish that is planktivorous.",
     "can_eat": "Technically",
     "description": "white, black, blue"
@@ -2394,7 +2394,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "turtle reef, tank a, coral reef",
+    "swsa_hab": "turtle reef, A, coral reef",
     "nifty_facts": "Has a distinct crosshatch pattern on its sides.",
     "can_eat": "Technically",
     "description": "yellow, black"
@@ -2454,7 +2454,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A, coral reef, turtle reef",
+    "swsa_hab": "A, coral reef, turtle reef",
     "nifty_facts": "Bright yellow with blue rings around the eyes.",
     "can_eat": "Technically",
     "description": "yellow, blue"
@@ -2466,7 +2466,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "The largest species of butterflyfish.",
     "can_eat": "Technically",
     "description": "yellow, black, white"
@@ -2490,7 +2490,7 @@
     "conservation_status": "LC",
     "poison_toxin": "yes",
     "natural_hab": "Tropical and subtropical oceans",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Can inflate its body to erect its long spines.",
     "can_eat": "NO!",
     "description": "white, brown"
@@ -2526,7 +2526,7 @@
     "conservation_status": "NT",
     "poison_toxin": "yes",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Secretes a toxin called ostracitoxin when stressed.",
     "can_eat": "NO!",
     "description": "yellow, brown, white"
@@ -2562,7 +2562,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Nocturnal and has very large eyes.",
     "can_eat": "Technically",
     "description": "black, white, red"
@@ -2718,7 +2718,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Eastern Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Males develop a prominent hump on their head.",
     "can_eat": "Technically",
     "description": "white, red, yellow"
@@ -2826,7 +2826,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "5, tank a, tank b",
+    "swsa_hab": "5, A, B",
     "nifty_facts": "Acts as a cleaner fish for larger species.",
     "can_eat": "Technically",
     "description": "orange, green, yellow, blue, purple"
@@ -2874,7 +2874,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "turtle reef, tank a",
+    "swsa_hab": "turtle reef, A",
     "nifty_facts": "Nocturnal and hides in caves during the day.",
     "can_eat": "Technically",
     "description": "orange, white, brown, yellow"
@@ -3006,7 +3006,7 @@
     "conservation_status": "NT",
     "poison_toxin": "no",
     "natural_hab": "South American rivers",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Needs wood in its diet for proper digestion.",
     "can_eat": "Technically",
     "description": "orange"
@@ -3042,7 +3042,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "4, tank a",
+    "swsa_hab": "4, A",
     "nifty_facts": "Deepwater species, often found below 150 feet.",
     "can_eat": "Technically",
     "description": "white, yellow, black, blue"
@@ -3102,7 +3102,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Pacific coral reefs",
-    "swsa_hab": "2, turtle reef, tank a",
+    "swsa_hab": "2, turtle reef",
     "nifty_facts": "Males mouthbrood the eggs until they hatch.",
     "can_eat": "Technically",
     "description": "yellow, white, black, brown, red"
@@ -3294,7 +3294,7 @@
     "conservation_status": "?",
     "poison_toxin": "yes",
     "natural_hab": "Indo-Pacific",
-    "swsa_hab": "tube",
+    "swsa_hab": "a",
     "nifty_facts": "Striking half yellow and half blue coloration.",
     "can_eat": "NO!",
     "description": "yellow, black"
@@ -3306,7 +3306,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "coral reef, tank b",
+    "swsa_hab": "coral reef, B",
     "nifty_facts": "Grunts by rubbing its pharyngeal teeth together.",
     "can_eat": "Technically",
     "description": "yellow, black, brown"
@@ -3318,7 +3318,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indian Ocean coral reefs",
-    "swsa_hab": "turtle reef, coral reef, tank a",
+    "swsa_hab": "turtle reef, coral reef, A",
     "nifty_facts": "Highly territorial and aggressive toward other tangs.",
     "can_eat": "Technically",
     "description": "black, blue, yellow"
@@ -3354,7 +3354,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Builds extensive burrows in the rubble zone.",
     "can_eat": "Technically",
     "description": "pink, purple, blue, white"
@@ -3390,7 +3390,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A, coral reef",
+    "swsa_hab": "A, coral reef",
     "nifty_facts": "One of the few reef-safe butterflyfish.",
     "can_eat": "Technically",
     "description": "yellow, white"
@@ -3402,7 +3402,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Has a distinctive \"crown\" on its forehead.",
     "can_eat": "Technically",
     "description": "yellow, blue"
@@ -3414,7 +3414,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "turtle reef, tank a",
+    "swsa_hab": "turtle reef, A",
     "nifty_facts": "Helps keep reefs healthy by eating algae.",
     "can_eat": "Technically",
     "description": "blue, purple, yellow"
@@ -3426,7 +3426,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "turtle reef, tank a, coral reef",
+    "swsa_hab": "turtle reef, A, coral reef",
     "nifty_facts": "Nocturnal feeder, unusual for butterflyfish.",
     "can_eat": "Technically",
     "description": "blue, purple, yellow"
@@ -3474,7 +3474,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Males have a distinct red band across their body.",
     "can_eat": "Technically",
     "description": "white, red, yellow"
@@ -3594,7 +3594,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "South American rivers",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Has a bright red spot above its eye.",
     "can_eat": "Technically",
     "description": "red, silver"
@@ -3618,7 +3618,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Sets up cleaning stations to remove parasites from other fish.",
     "can_eat": "Technically",
     "description": "yellow, blue, red"
@@ -3630,7 +3630,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Nocturnal and hides in caves during the day.",
     "can_eat": "Technically",
     "description": "red, white"
@@ -3642,7 +3642,7 @@
     "conservation_status": "LC",
     "poison_toxin": "yes",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Males have a reticulated pattern, while females are more uniform.",
     "can_eat": "NO!",
     "description": "yellow, white, brown"
@@ -3666,7 +3666,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Feeds heavily on sponges.",
     "can_eat": "Technically",
     "description": "yellow, black, blue"
@@ -3690,7 +3690,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "4, turtle reef, tank a, coral reef",
+    "swsa_hab": "4, turtle reef, A, coral reef",
     "nifty_facts": "Very difficult to acclimate to aquarium life.",
     "can_eat": "Technically",
     "description": "orange, white, blue"
@@ -3714,7 +3714,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "South American rivers",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Its red nose indicates good water quality.",
     "can_eat": "Technically",
     "description": "white, black, red"
@@ -3834,7 +3834,7 @@
     "conservation_status": "LC",
     "poison_toxin": "yes",
     "natural_hab": "South American rivers",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Has mild venom in its pectoral and dorsal spines.",
     "can_eat": "Technically",
     "description": "black, silver"
@@ -3846,7 +3846,7 @@
     "conservation_status": "LC",
     "poison_toxin": "yes",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Covered in beautiful, scrawled blue lines.",
     "can_eat": "NO!",
     "description": "white, yellow, blue, black"
@@ -3858,7 +3858,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Circumtropical coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Can change its color to blend in with its surroundings.",
     "can_eat": "Technically",
     "description": "white, yellow, black, blue"
@@ -4002,7 +4002,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "turtle reef, tank a, coral reef",
+    "swsa_hab": "turtle reef, A, coral reef",
     "nifty_facts": "Has a prominent silvery-white spot near its tail.",
     "can_eat": "Technically",
     "description": "red"
@@ -4015,8 +4015,8 @@
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific",
     "swsa_hab": "",
-    "nifty_facts": "hermaphroditicTechnically",
-    "can_eat": "",
+    "nifty_facts": "hermaphroditic",
+    "can_eat": "Technically",
     "description": "black, white, yellow"
   },
   {
@@ -4110,7 +4110,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Forms dense schools during the day.",
     "can_eat": "Technically",
     "description": "yellow, silver"
@@ -4158,7 +4158,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Males display vibrant colors during courtship.",
     "can_eat": "Technically",
     "description": "pink, purple, yellow, green"
@@ -4182,7 +4182,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Juveniles pick parasites off larger fish.",
     "can_eat": "Technically",
     "description": "purple, yellow, orange"
@@ -4194,7 +4194,7 @@
     "conservation_status": "LC",
     "poison_toxin": "yes",
     "natural_hab": "Amazon rainforest",
-    "swsa_hab": "gallery 6",
+    "swsa_hab": "6",
     "nifty_facts": "Secretes toxins derived from its diet of ants.",
     "can_eat": "NO!",
     "description": "orange, yellow, black"
@@ -4350,7 +4350,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "South American rivers",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Camouflages itself to look like a submerged twig.",
     "can_eat": "Technically",
     "description": "brown, white, silver"
@@ -4362,7 +4362,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "turtle reef, tank a, coral reef",
+    "swsa_hab": "turtle reef, A, coral reef",
     "nifty_facts": "Males have a distinct red spot on their dorsal fin.",
     "can_eat": "Technically",
     "description": "orange, blue, white"
@@ -4383,8 +4383,8 @@
     "name": "stony coral",
     "diet": "Zooxanthellae/plankton",
     "longevity": "100+ years",
-    "conservation_status": "Varies",
-    "poison_toxin": "no",
+    "conservation_status": "Variesno",
+    "poison_toxin": "",
     "natural_hab": "Oceans worldwide",
     "swsa_hab": "4",
     "nifty_facts": "The primary builders of coral reefs.",
@@ -4446,7 +4446,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "2, turtle reef, tank a, coral reef",
+    "swsa_hab": "2, turtle reef, A, coral reef",
     "nifty_facts": "Sets up cleaning stations to remove parasites from other fish.",
     "can_eat": "Technically",
     "description": "white, black, yellow"
@@ -4506,7 +4506,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Freshwater rivers in South America and Africa",
-    "swsa_hab": "gallery 7",
+    "swsa_hab": "7",
     "nifty_facts": "Many species have a small adipose fin.",
     "can_eat": "Technically",
     "description": "red, blue, white"
@@ -4554,7 +4554,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "turtle reef, tank a, coral reef",
+    "swsa_hab": "turtle reef, A, coral reef",
     "nifty_facts": "Feeds heavily on sponges in the wild.",
     "can_eat": "Technically",
     "description": "yellow, blue, white"
@@ -4566,7 +4566,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Western Atlantic coral reefs",
-    "swsa_hab": "tank b",
+    "swsa_hab": "B",
     "nifty_facts": "Simultaneous hermaphrodite.",
     "can_eat": "Technically",
     "description": "orange, black, white"
@@ -4674,7 +4674,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Indo-Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "One of the smallest hogfish species.",
     "can_eat": "Technically",
     "description": "yellow, orange, black"
@@ -4702,18 +4702,6 @@
     "nifty_facts": "Grows in a distinctive vase or cup shape.",
     "can_eat": "NO!",
     "description": "orange, white, yellow, green, purple"
-  },
-  {
-    "name": "vegabond butterflyfish",
-    "diet": "omnivore",
-    "longevity": "5-7 years",
-    "conservation_status": "LC",
-    "poison_toxin": "no",
-    "natural_hab": "Indo-Pacific",
-    "swsa_hab": "",
-    "nifty_facts": "",
-    "can_eat": "Technically",
-    "description": "white, yellow, black"
   },
   {
     "name": "wavy turban snail",
@@ -4806,7 +4794,7 @@
     "conservation_status": "LC",
     "poison_toxin": "no",
     "natural_hab": "Eastern Pacific coral reefs",
-    "swsa_hab": "Tank A",
+    "swsa_hab": "A",
     "nifty_facts": "Named for a red mark that looks like a wound.",
     "can_eat": "Technically",
     "description": "green, yellow, red"
@@ -4815,10 +4803,10 @@
     "name": "wrasse",
     "diet": "Carnivore",
     "longevity": "3-10 years",
-    "conservation_status": "Varies",
-    "poison_toxin": "no",
+    "conservation_status": "Variesno",
+    "poison_toxin": "",
     "natural_hab": "Oceans worldwide",
-    "swsa_hab": "Tank A, 4",
+    "swsa_hab": "A, 4",
     "nifty_facts": "A very diverse family of brightly colored fish.",
     "can_eat": "Technically",
     "description": "orange, green, pink"
@@ -4914,7 +4902,7 @@
     "conservation_status": "LC",
     "poison_toxin": "yes",
     "natural_hab": "South American rainforests",
-    "swsa_hab": "gallery 6",
+    "swsa_hab": "6",
     "nifty_facts": "The only poison dart frog known to aestivate during dry spells.",
     "can_eat": "NO!",
     "description": "black, yellow"
@@ -4986,7 +4974,7 @@
     "conservation_status": "NT",
     "poison_toxin": "no",
     "natural_hab": "African coastal waters",
-    "swsa_hab": "gallery 6",
+    "swsa_hab": "6",
     "nifty_facts": "Excellent algae eater that won't reproduce in freshwater.",
     "can_eat": "Technically",
     "description": "yellow, black"
@@ -5002,5 +4990,17 @@
     "nifty_facts": "Juveniles have zebra stripes, while adults have leopard spots.",
     "can_eat": "NO!",
     "description": "silver"
+  },
+  {
+    "name": "caribbean spiny lobster",
+    "diet": "Omnivore/carnivore (age dependant)",
+    "longevity": "15+ years",
+    "conservation_status": "DD",
+    "poison_toxin": "no",
+    "natural_hab": "Caribbean Sea",
+    "swsa_hab": "lobster",
+    "nifty_facts": "Lacks large claws and uses long spiny antennae for defense.",
+    "can_eat": "YES!",
+    "description": "red, brown, white"
   }
 ]

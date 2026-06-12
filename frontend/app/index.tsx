@@ -59,7 +59,7 @@ export default function Home() {
   }, [query, filters]);
 
   const activeFilterCount = useMemo(() => {
-    const keys: (keyof SearchFilters)[] = ["colors", "diets", "habitats", "swsa_habitats", "conservation", "can_eat", "poison"];
+    const keys: (keyof SearchFilters)[] = ["colors", "swsa_habitats", "diets", "conservation", "can_eat", "poison"];
     return keys.reduce((sum, k) => sum + ((filters[k] as string[] | undefined)?.length || 0), 0);
   }, [filters]);
 
@@ -302,9 +302,8 @@ function FilterSheet({
         </View>
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 40 }}>
           {renderGroup("Color", "colors", options.colors, "color")}
-          {renderGroup("Diet", "diets", options.diets)}
-          {renderGroup("Natural Habitat", "habitats", options.habitats)}
           {renderGroup("SWSA Habitat", "swsa_habitats", options.swsa_habitats, "swsa")}
+          {renderGroup("Diet", "diets", options.diets)}
           {renderGroup("Conservation", "conservation", options.conservation)}
           {renderGroup("Can I eat that?", "can_eat", options.can_eat)}
           {renderGroup("Poison / Toxin", "poison", options.poison)}

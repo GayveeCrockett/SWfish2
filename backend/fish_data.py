@@ -97,9 +97,11 @@ FISHES: List[Dict[str, Any]] = build_fishes()
 
 
 def all_filter_options() -> Dict[str, List[str]]:
-    colors, diets, habitats, swsa, conservation, can_eat, poison = (
-        set(), set(), set(), set(), set(), set(), set()
+    colors, diets, habitats, conservation, can_eat, poison = (
+        set(), set(), set(), set(), set(), set()
     )
+    # Case-insensitive de-dup for swsa using lowercase key -> first-seen display value.
+    swsa_seen: Dict[str, str] = {}
     for f in FISHES:
         for c in f["colors"]:
             colors.add(c)
@@ -109,7 +111,12 @@ def all_filter_options() -> Dict[str, List[str]]:
             if h:
                 habitats.add(h)
         for h in f["swsa_habitats"]:
-            swsa.add(h)
+            key = h.strip().lower()
+            if not key:
+                continue
+            if key not in swsa_seen:
+                # Prefer the first lowercase canonical form
+                swsa_seen[key] = h.strip().lower()
         if f["conservation_status"]:
             conservation.add(f["conservation_status"])
         if f["can_eat"]:
@@ -120,7 +127,7 @@ def all_filter_options() -> Dict[str, List[str]]:
         "colors": sorted(colors),
         "diets": sorted(diets),
         "habitats": sorted(habitats),
-        "swsa_habitats": sorted(swsa),
+        "swsa_habitats": sorted(swsa_seen.values()),
         "conservation": sorted(conservation),
         "can_eat": sorted(can_eat),
         "poison": sorted(poison),
