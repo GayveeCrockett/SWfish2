@@ -12,7 +12,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { Ionicons } from "@expo/vector-icons";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { FONTS, SPACING, RADIUS, COLOR_SWATCH, SWSA_ICON, PLACEHOLDER_IMAGE, useTheme, Theme } from "../../src/theme";
-import { fetchFish, Fish } from "../../src/api";
+import { fetchFish, Fish, resolveImageUrl } from "../../src/api";
 
 export default function FishDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
@@ -56,7 +56,7 @@ export default function FishDetail() {
   return (
     <View style={styles.container}>
       <View style={styles.heroWrap}>
-        <Image source={{ uri: fish.image_url || PLACEHOLDER_IMAGE }} style={styles.hero} />
+        <Image source={{ uri: resolveImageUrl(fish.image_url) || PLACEHOLDER_IMAGE }} style={styles.hero} />
         <View style={styles.heroOverlay} />
       </View>
 

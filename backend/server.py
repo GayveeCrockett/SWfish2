@@ -1,4 +1,5 @@
 from fastapi import FastAPI, APIRouter, HTTPException, Query
+from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 import os
@@ -13,6 +14,10 @@ load_dotenv(ROOT_DIR / ".env")
 
 app = FastAPI(title="Reef Search API")
 api_router = APIRouter(prefix="/api")
+
+# Serve locally-cached Wikipedia images under /api/images/*
+IMAGES_DIR = ROOT_DIR / "static" / "images"
+IMAGES_DIR.mkdir(parents=True, exist_ok=True)
 
 
 @api_router.get("/")
@@ -82,6 +87,9 @@ async def get_fish(fish_id: str):
 
 
 app.include_router(api_router)
+
+# Mount static images AFTER the API router (StaticFiles serves /api/images/*)
+app.mount("/api/images", StaticFiles(directory=str(IMAGES_DIR)), name="images")
 
 app.add_middleware(
     CORSMiddleware,

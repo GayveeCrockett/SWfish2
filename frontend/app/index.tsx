@@ -27,7 +27,7 @@ import {
   useTheme,
   Theme,
 } from "../src/theme";
-import { fetchFilters, fetchFishes, Fish, FilterOptions, SearchFilters } from "../src/api";
+import { fetchFilters, fetchFishes, Fish, FilterOptions, SearchFilters, resolveImageUrl } from "../src/api";
 
 const DEBOUNCE_MS = 300;
 
@@ -79,7 +79,7 @@ export default function Home() {
         activeOpacity={0.85}
       >
         <View style={styles.cardImageWrap}>
-          <Image source={{ uri: item.image_url || PLACEHOLDER_IMAGE }} style={styles.cardImage} />
+          <Image source={{ uri: resolveImageUrl(item.image_url) || PLACEHOLDER_IMAGE }} style={styles.cardImage} />
           <View style={styles.imageOverlay} />
           {item.poison_toxin === "yes" && (
             <View style={styles.poisonBadge} testID={`poison-badge-${item.id}`}>

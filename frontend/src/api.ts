@@ -1,5 +1,12 @@
 const BASE_URL = process.env.EXPO_PUBLIC_BACKEND_URL;
 
+export function resolveImageUrl(url?: string | null): string {
+  if (!url) return "";
+  if (url.startsWith("http://") || url.startsWith("https://")) return url;
+  if (url.startsWith("/")) return `${BASE_URL}${url}`;
+  return url;
+}
+
 export type Fish = {
   id: string;
   name: string;
