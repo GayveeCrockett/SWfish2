@@ -23,7 +23,15 @@
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/favicon.png",
+      "name": "Sea World San Antonio: Explorer's Reef",
+      "shortName": "Explorer's Reef",
+      "description": "Discover 367 fish and coral species from the Sea World San Antonio Explorer's Reef habitat.",
+      "themeColor": "#0A5AA8",
+      "backgroundColor": "#F6FBFC",
+      "display": "standalone",
+      "orientation": "portrait",
+      "startUrl": "/"
     },
     "plugins": [
       "expo-router",
